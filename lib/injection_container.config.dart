@@ -15,7 +15,6 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import 'core/local_storage/share_preferences.dart' as _i138;
 import 'core/managers/analytics/google_analytics_manager.dart' as _i169;
-import 'core/managers/notifications/notifications_manager.dart' as _i763;
 import 'core/network/network_provider/network_provider.dart' as _i987;
 import 'core/routes/app_navigator_observer.dart' as _i1024;
 import 'features/app/presentation/bloc/app_cubit.dart' as _i393;
@@ -49,8 +48,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i361.Dio>(() => networkProvider.service());
     gh.lazySingleton<_i169.GoogleAnalyticsManager>(
         () => _i169.GoogleAnalyticsManager());
-    gh.lazySingleton<_i763.NotificationsManager>(
-        () => _i763.NotificationsManager());
     gh.lazySingleton<_i1024.AppNavigatorObserver>(
         () => _i1024.AppNavigatorObserver());
     gh.lazySingleton<_i419.MainCubit>(() => _i419.MainCubit());

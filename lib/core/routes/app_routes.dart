@@ -5,7 +5,7 @@ import 'package:collection/collection.dart';
 enum AppRoutes {
   /// Auth Feature
   login('login'),
-
+  welcome('welcome'),
   /// main
   main('main'),
   ;

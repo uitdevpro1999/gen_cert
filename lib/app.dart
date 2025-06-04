@@ -41,9 +41,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
     return BlocProvider(
       create: (_) => _authCubit,
       child: OverlaySupport.global(
-        child: ScreenUtilInit(
-          designSize: Size(Consts.screenWidth, Consts.screenHeight),
-          builder: (context, child) => RefreshConfiguration(
+        child: RefreshConfiguration(
             headerBuilder: () => const MaterialClassicHeader(
               backgroundColor: Colors.blueAccent,
               color: Colors.white,
@@ -59,27 +57,26 @@ class _AppState extends State<App> with WidgetsBindingObserver {
               ],
               title: F.title,
               onGenerateRoute: Routes.generateRoute,
+              navigatorKey: Routes.navigatorKey,
               theme: ThemeData(colorScheme: ColorScheme.fromSwatch(backgroundColor: Colors.white60)),
               builder: (context, widget) {
                 return BlocListener<AppCubit, AppState>(
                   listenWhen: (previous, current) => previous.authStatus != current.authStatus,
                   listener: (context, state) {
                     if (state.authStatus == AuthStatus.unauthenticated) {
-                      NavigationUtils.pushAndRemoveUtilPage(context, AppRoutes.login, rootNavigator: true);
+                      NavigationUtils.pushAndRemoveUtilPage(Routes.navigatorKey.currentContext!, AppRoutes.welcome, rootNavigator: true);
                     } else if (state.authStatus == AuthStatus.authenticated) {
-                      NavigationUtils.pushAndRemoveUtilPage(context, AppRoutes.main, rootNavigator: true);
+                      NavigationUtils.pushAndRemoveUtilPage(Routes.navigatorKey.currentContext!, AppRoutes.main, rootNavigator: true);
                     }
                   },
                   child: MediaQuery(
                       data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1)), child: widget!),
                 );
               },
-              home: child,
+              home: const SplashPage(),
             ),
           ),
-          child: const SplashPage(),
         ),
-      ),
     );
   }
 

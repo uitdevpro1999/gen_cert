@@ -8,22 +8,22 @@ import 'package:gen_cert/app.dart';
 import 'package:gen_cert/core/localizations/localizations.dart';
 import 'package:gen_cert/injection_container.dart';
 
-@pragma('vm:entry-point')
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-}
+// @pragma('vm:entry-point')
+// Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+//   await Firebase.initializeApp();
+// }
 
 Future<void> start() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureDependencies();
-  await Firebase.initializeApp();
-  FirebaseMessaging.onBackgroundMessage.call(_firebaseMessagingBackgroundHandler);
+  // await Firebase.initializeApp();
+  // FirebaseMessaging.onBackgroundMessage.call(_firebaseMessagingBackgroundHandler);
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]).then((_) {
     Bloc.observer = SimpleBlocObserver();
     runApp(
       EasyLocalization(
         supportedLocales: supportedLanguage,
-        path: 'assets/translations',
+        path: 'assets/localizations',
         fallbackLocale: defaultLanguage,
         startLocale: defaultLanguage,
         child: const App(),
