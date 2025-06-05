@@ -3,6 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:gen_cert/core/common/styles/app_colors.dart';
 import 'package:gen_cert/core/common/styles/app_text_style.dart';
 import 'package:gen_cert/core/common/widgets/buttons/bottom_bar_button.dart';
+import 'package:gen_cert/core/routes/app_routes.dart';
+import 'package:gen_cert/core/utils/navigation_utils.dart';
 import 'package:gen_cert/generated/assets.gen.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -55,6 +57,8 @@ class _WelcomePageState extends State<WelcomePage> {
               style: AppTextStyle.h5Bold.copyWith(color: AppColors.greyscale700),
             ),
             const Spacer(),
+            const Divider(color: AppColors.greyscale100),
+            const Gap(24),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
@@ -70,11 +74,11 @@ class _WelcomePageState extends State<WelcomePage> {
                   BottomBarButton.secondary(
                     "I ALREADY HAVE AN ACCOUNT",
                     () {
-                      // TODO: Handle login nav
+                      NavigationUtils.pushNamed(context, AppRoutes.login);
                     },
                     size: BottomBarButtonSize.large,
                   ),
-                  const Gap(24),
+                  const Gap(36),
                 ],
               ),
             ),

@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen_cert/core/common/bases/enum/auth_status.dart';
-import 'package:gen_cert/core/constants/constants.dart';
 import 'package:gen_cert/core/routes/app_navigator_observer.dart';
 import 'package:gen_cert/core/routes/app_routes.dart';
 import 'package:gen_cert/core/routes/routes.dart';
@@ -11,7 +10,6 @@ import 'package:gen_cert/features/app/presentation/bloc/app_cubit.dart';
 import 'package:gen_cert/features/splash/presentation/pages/splash_page.dart';
 import 'package:gen_cert/flavors.dart';
 import 'package:gen_cert/injection_container.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gen_cert/core/common/widgets/input/custom_input_field.dart';
 import 'package:gen_cert/features/auth/presentation/login/bloc/login_cubit.dart';
 import 'package:gen_cert/injection_container.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -24,11 +25,17 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: AppBar(),
       body: BlocProvider(
         create: (_) => _loginCubit,
         child: BlocBuilder<LoginCubit, LoginState>(
           builder: (context, state) {
-            return Container();
+            return Column(
+              children: [
+                Container(),
+                CustomInputField(title: 'Tài khoản', hintText: 'Nhập tài khoản',),
+              ],
+            );
           },
         ),
       ),
